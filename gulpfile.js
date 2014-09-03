@@ -1,7 +1,7 @@
 'use strict';
 /*
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  PLEASE TAKE A LOOK AT gulp/config.js
+  PLEASE TAKE A LOOK AT config/*
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */
 var requireDir = require('require-dir');
