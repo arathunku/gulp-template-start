@@ -2,7 +2,7 @@
 var path = require('path');
 var _ = require('underscore');
 
-var SUPPORTED_ENVS = ['development', 'staging', 'production'];
+var SUPPORTED_ENVS = ['development', 'test', 'staging', 'production'];
 
 var pathCreator = function(base){
   return function() {
@@ -25,24 +25,29 @@ var getEnvConfig = function() {
 var appPath = 'app';
 var distPath = 'dist';
 
+
+// Config on the back-end and front-end
 var defaultConfig = {
-  // build config
+  isDevelopment: false,
+  isStaging: false,
+  isTest: false,
+  isProduction: false,
   appPath: appPath,
   distPath: distPath,
   app: pathCreator(appPath),
   dist: pathCreator(distPath),
   debug: true,
-  isDevelopment: true,
-  isProduction: false,
   sourcemaps: true,
-  rev: false,
-  uglify: false,
-  minifycss: true,
-  htmlmin: true,
-  autoreload: true,
-
-  hosts: {
-    api: 'hosts.api'
+  rev: false, // rev generates hash for dist/* files so they could be cached without a problem
+  uglify: false, // js uglify
+  minifycss: true, // css minifications
+  htmlmin: true, // html minifications
+  autoreload: true, // if browser should reload page on changes, it's only used in watch mode
+  host: {
+    // Locations of API server
+    api: 'http://127.0.0.1',
+    // Location of front-end
+    frontend: 'http://127.0.0.1'
   }
 };
 

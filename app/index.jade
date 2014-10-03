@@ -1,7 +1,11 @@
-html
+html(ng-app="app")
   head
+    base(href="/")
     link(type="text/css", rel="stylesheet", href="/styles/style.min.css")
     script(type="text/javascript", src="/scripts/app.min.js")
   body
     div
-      h3 woa
+      .title
+        h3 woaaa
+    div
+      ui-view

@@ -7,5 +7,4 @@
   - [ ] add scripts modules
   - [ ] add styles modules
   - [ ] generalize modules and async loading
-  - [ ] based on cookie fill initial page load with user data
 

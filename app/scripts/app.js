@@ -1,15 +1,23 @@
 'use strict';
+// TESTING PURPOSES, REMOVE
 if(typeof global.app === 'undefined') {
   global.app = {};
 }
-var _ = require('underscore');
+// var _ = require('underscore');
+
+// for angular modularity
+require('angular');
+require('angular-ui-router');
+require('angular-resource');
+
+require('./modules/user/user.js');
 
 var app = global.app;
 
-_.extend(app, {
-  config: process.env.CONFIG
-});
+app = require('angular').module('app', [
+  'ngResource',
+  'ui.router',
+  'user'
+]);
 
-
-require('./shared-util-components/shared-util-components.js')(app);
-require('./shared-template-components/shared-template-components.js')(app);
+require('./config.js');

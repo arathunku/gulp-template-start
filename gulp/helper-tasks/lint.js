@@ -6,7 +6,11 @@ var jshint = require('gulp-jshint');
 
 // JSHint task
 gulp.task('lint', function() {
-  return gulp.src(config.app('/scripts/**/*.js'))
+  return gulp.src([
+      config.app('/scripts/**/*.js'),
+      // Ignore vendors directory for linting.
+      '!' + config.app('/scripts/vendor/**')
+    ])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

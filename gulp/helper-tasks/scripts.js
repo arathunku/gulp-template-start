@@ -10,8 +10,9 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var rename = require('gulp-rename');
 var browserify   = require('browserify');
+// var es6ify       = require('es6ify');  # ES6
 var watchify     = require('watchify');
-var envify     = require('envify/custom');
+var envify       = require('envify/custom');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var source       = require('vinyl-source-stream');
@@ -58,7 +59,6 @@ var gulpBrowserify = function(bundler) {
       .pipe(gulpIf(config.rev, gulp.dest(config.dist('rev'))));
   };
 };
-
 
 gulp.task('scripts', ['js-clean'], function() {
   return gulpBrowserify(browserifyBundle())();

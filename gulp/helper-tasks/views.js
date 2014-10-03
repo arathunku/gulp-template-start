@@ -25,11 +25,3 @@ gulp.task('index', [], function() {
     .on('error', handleErrors)
     .pipe(gulp.dest(config.dist('/')));
 });
-
-gulp.task('views', ['views-clean'], function() {
-  return gulp.src(config.app('/views/**/*'))
-    .pipe(jade())
-    .pipe(gulpIf(config.htmlmin, htmlmin({collapseWhitespace: true})))
-    .on('error', handleErrors)
-    .pipe(gulp.dest(config.dist('views/')));
-});
